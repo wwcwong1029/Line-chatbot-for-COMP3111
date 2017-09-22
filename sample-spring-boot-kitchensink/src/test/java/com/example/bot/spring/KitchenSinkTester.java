@@ -76,7 +76,7 @@ public class KitchenSinkTester {
 	}
 	
 	@Test
-		public void testIamfind() throws Exception {
+		public void testFound2() throws Exception {
 		boolean thrown = false;
 		String result = null;
 		try {
@@ -85,8 +85,20 @@ public class KitchenSinkTester {
 			thrown = true;
 		}
 		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("Great!");		
+	}
+	
+	@Test
+		public void testFound3() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
+			result = this.databaseEngine.search("I am fine now, thanks for your sharing.");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown).isEqualTo(true);
 		assertThat(result).isEqualTo("Great!");
-		
-		
+		}
 	}
 }
