@@ -65,23 +65,27 @@ public class KitchenSinkTester {
 	@Test
 	public void testFound() throws Exception {
 		boolean thrown = false;
+		String result = null;
 		try {
-			this.databaseEngine.search("abc");
+			result = this.databaseEngine.search("abc");
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(thrown).isEqualTo(true);
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("def");
 	}
 	
 	@Test
-	public void testIamfind() throws Exception {
+		public void testIamfind() throws Exception {
 		boolean thrown = false;
+		String result = null;
 		try {
-			this.databaseEngine.search("I am fine");
+			result = this.databaseEngine.search("I am fine");
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(thrown).isEqualTo(true);
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("Great!");
 		
 		
 	}
