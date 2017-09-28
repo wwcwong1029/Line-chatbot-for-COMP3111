@@ -50,7 +50,7 @@ import com.example.bot.spring.DatabaseEngine;
 @SpringBootTest(classes = { KitchenSinkTester.class, SQLDatabaseEngine.class })
 public class KitchenSinkTester {
 	@Autowired
-	private SQLDatabaseEngine databaseEngine;
+	private DatabaseEngine databaseEngine;
 	
 	@Test
 	public void testNotFound() throws Exception {
@@ -62,8 +62,8 @@ public class KitchenSinkTester {
 		}
 		assertThat(thrown).isEqualTo(true);
 	}
-	
-	/*@Test
+	/*
+	@Test
 	public void testFound() throws Exception {
 		boolean thrown = false;
 		String result = null;
