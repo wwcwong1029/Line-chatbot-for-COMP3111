@@ -17,7 +17,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		String result = null;
 		Connection connection = this.getConnection();
 		PreparedStatement stmt = connection.prepareStatement("SELECT response FROM linechatbot WHERE ? LIKE CONCAT('%',keyword,'%')");
-		stmt.setString(1, "abcde");
+		stmt.setString(1, text);
 		ResultSet rs = stmt.executeQuery();
 		if (rs.next())
 			result = rs.getString(1);
