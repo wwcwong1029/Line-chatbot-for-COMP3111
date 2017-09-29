@@ -16,14 +16,17 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	String search(String text) throws Exception {
 		String result = null;
 		Connection connection = this.getConnection();
+		
 		PreparedStatement stmt = connection.prepareStatement("SELECT response FROM linechatbot WHERE ? LIKE CONCAT('%',keyword,'%')");
 		stmt.setString(1, text.toLowerCase());
 		ResultSet rs = stmt.executeQuery();
 		if (rs.next())
 			result = rs.getString(1);
+		
 		rs.close();
 		stmt.close();
 		connection.close();
+		
 		if (result != null)
 			return result;
 		throw new Exception("NOT FOUND");
